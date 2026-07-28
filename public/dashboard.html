@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="StudyPilot AI student dashboard."
+    >
+
+    <title>Dashboard | StudyPilot AI</title>
+
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/dashboard.css">
+</head>
+
+<body>
+    <div class="dashboard-layout">
+
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <a href="/dashboard" class="logo">
+                    StudyPilot <span>AI</span>
+                </a>
+
+                <button
+                    class="sidebar-close"
+                    id="sidebar-close"
+                    type="button"
+                    aria-label="Close navigation"
+                >
+                    ×
+                </button>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="#overview" class="nav-link active">
+                    <span class="nav-icon">⌂</span>
+                    <span>Overview</span>
+                </a>
+
+                <a href="#ai-tutor" class="nav-link">
+                    <span class="nav-icon">AI</span>
+                    <span>AI Tutor</span>
+                </a>
+
+                <a href="#study-plans" class="nav-link">
+                    <span class="nav-icon">✓</span>
+                    <span>Study Plans</span>
+                </a>
+
+                <a href="#recent-activity" class="nav-link">
+                    <span class="nav-icon">↻</span>
+                    <span>History</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="sidebar-user">
+                    <div class="user-avatar" id="sidebar-avatar">
+                        S
+                    </div>
+
+                    <div class="sidebar-user-info">
+                        <strong id="sidebar-username">
+                            Student
+                        </strong>
+
+                        <span id="sidebar-email">
+                            Loading...
+                        </span>
+                    </div>
+                </div>
+
+                <button
+                    id="signout-button"
+                    class="signout-button"
+                    type="button"
+                >
+                    Sign Out
+                </button>
+            </div>
+        </aside>
+
+        <!-- Mobile overlay -->
+        <div
+            class="sidebar-overlay"
+            id="sidebar-overlay"
+        ></div>
+
+        <!-- Main content -->
+        <main class="dashboard-main">
+
+            <!-- Header -->
+            <header class="dashboard-header">
+                <div class="header-left">
+                    <button
+                        class="menu-button"
+                        id="menu-button"
+                        type="button"
+                        aria-label="Open navigation"
+                    >
+                        ☰
+                    </button>
+
+                    <div>
+                        <p class="header-label">
+                            Dashboard
+                        </p>
+
+                        <h1>
+                            Welcome back,
+                            <span id="username">Student</span>
+                        </h1>
+                    </div>
+                </div>
+
+                <div class="header-actions">
+                    <button
+                        class="notification-button"
+                        type="button"
+                        aria-label="Notifications"
+                    >
+                        <span>○</span>
+                        <span class="notification-dot"></span>
+                    </button>
+
+                    <button
+                        class="button"
+                        type="button"
+                        id="new-plan-button"
+                    >
+                        + New Plan
+                    </button>
+                </div>
+            </header>
+
+            <div class="dashboard-content">
+
+                <!-- Overview -->
+                <section
+                    class="dashboard-section"
+                    id="overview"
+                >
+                    <div class="section-heading">
+                        <div>
+                            <p class="section-label">
+                                Your progress
+                            </p>
+
+                            <h2>Learning overview</h2>
+                        </div>
+
+                        <p class="current-date" id="current-date"></p>
+                    </div>
+
+                    <div class="stats-grid">
+                        <article class="stat-card">
+                            <div class="stat-card-top">
+                                <span class="stat-icon">✓</span>
+
+                                <span
+                                    class="stat-change"
+                                    id="active-plans-detail"
+                                >
+                                    Loading...
+                                </span>
+                            </div>
+
+                            <strong id="active-plans-count">
+                                0
+                            </strong>
+
+                            <p>Active study plans</p>
+                        </article>
+
+                        <article class="stat-card">
+                            <div class="stat-card-top">
+                                <span class="stat-icon">◎</span>
+
+                                <span
+                                    class="stat-change"
+                                    id="completed-topics-detail"
+                                >
+                                    Loading...
+                                </span>
+                            </div>
+
+                            <strong id="completed-topics-count">
+                                0
+                            </strong>
+
+                            <p>Topics completed</p>
+                        </article>
+
+                        <article class="stat-card">
+                            <div class="stat-card-top">
+                                <span class="stat-icon">↗</span>
+
+                                <span
+                                    class="stat-change"
+                                    id="overall-progress-detail"
+                                >
+                                    Loading...
+                                </span>
+                            </div>
+
+                            <strong id="overall-progress-count">
+                                0%
+                            </strong>
+
+                            <p>Overall progress</p>
+                        </article>
+                    </div>
+                </section>
+
+                <!-- Main grid -->
+                <section class="dashboard-grid">
+
+                    <!-- AI Tutor -->
+                    <article
+                        class="dashboard-card ai-card"
+                        id="ai-tutor"
+                    >
+                        <div class="card-header">
+                            <div>
+                                <p class="section-label">
+                                    Ask anything
+                                </p>
+
+                                <h2>AI Tutor</h2>
+                            </div>
+
+                            <span class="status-badge">
+                                Online
+                            </span>
+                        </div>
+
+                        <div class="ai-intro">
+                            <div class="ai-avatar">
+                                AI
+                            </div>
+
+                            <div>
+                                <strong>
+                                    What would you like to study?
+                                </strong>
+
+                                <p>
+                                    Ask for explanations, examples,
+                                    quizzes, or a personalized study plan.
+                                </p>
+                            </div>
+                        </div>
+
+                        <form
+                            id="ai-form"
+                            class="ai-form"
+                        >
+                            <textarea
+                                id="ai-question"
+                                name="question"
+                                rows="5"
+                                placeholder="For example: Explain binary search in simple terms..."
+                            ></textarea>
+
+                            <div class="ai-form-footer">
+                                <span>
+                                     Describe your goal and let AI create a personalized plan.
+                                </span>
+
+                                <button
+                                    class="button"
+                                    id="ask-ai-button"
+                                    type="button"
+                                >
+                                    Generate Study Plan
+                                </button>
+                            </div>
+                        </form>
+                    </article>
+
+                    <!-- Today's goal -->
+                    <article class="dashboard-card goal-card">
+                        <div class="card-header">
+                            <div>
+                                <p class="section-label">
+                                    Focus
+                                </p>
+
+                                <h2>Today's goal</h2>
+                            </div>
+
+                            <span class="goal-icon">
+                                ◎
+                            </span>
+                        </div>
+
+                        <div class="goal-content">
+                            <h3 id="today-goal-title">
+                                Loading your next topic...
+                            </h3>
+
+                            <p id="today-goal-description">
+                                We are choosing the next step from your active study plans.
+                            </p>
+
+                            <div class="goal-plan-label">
+                                <span id="today-goal-plan">
+                                    Study plan
+                                </span>
+                            </div>
+
+                            <div class="progress-header">
+                                <span>Plan progress</span>
+
+                                <strong id="today-goal-progress">
+                                    0%
+                                </strong>
+                            </div>
+
+                            <div class="progress-bar">
+                                <span
+                                    id="today-goal-progress-bar"
+                                    style="width: 0%"
+                                ></span>
+                            </div>
+
+                            <button
+                                class="button button-secondary goal-button"
+                                id="continue-studying-button"
+                                type="button"
+                                disabled
+                            >
+                                Continue Studying
+                            </button>
+                        </div>
+                    </article>
+
+                </section>
+
+                <!-- Study plans -->
+                <section
+                    class="dashboard-section"
+                    id="study-plans"
+                >
+                    <div class="section-heading">
+                        <div>
+                            <p class="section-label">
+                                Organized learning
+                            </p>
+
+                            <h2>My Study Plans</h2>
+                        </div>
+
+                        <button
+                            class="text-button"
+                            type="button"
+                        >
+                            View all →
+                        </button>
+                    </div>
+
+                    <div class="plans-grid" id="plans-grid">
+                        <div class="plans-loading">
+                            Loading study plans...
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Recent activity -->
+                <section
+                    class="dashboard-section"
+                    id="recent-activity"
+                >
+                    <div class="section-heading">
+                        <div>
+                            <p class="section-label">
+                                Recent activity
+                            </p>
+
+                            <h2>AI History</h2>
+                        </div>
+                    </div>
+
+                    <div class="activity-list">
+                        <button
+                            class="activity-item"
+                            type="button"
+                        >
+                            <span class="activity-icon">AI</span>
+
+                            <span class="activity-content">
+                                <strong>
+                                    Explain depth-first search
+                                </strong>
+
+                                <small>
+                                    Computer Science · 2 hours ago
+                                </small>
+                            </span>
+
+                            <span class="activity-arrow">
+                                →
+                            </span>
+                        </button>
+
+                        <button
+                            class="activity-item"
+                            type="button"
+                        >
+                            <span class="activity-icon">AI</span>
+
+                            <span class="activity-content">
+                                <strong>
+                                    What is database normalization?
+                                </strong>
+
+                                <small>
+                                    Databases · Yesterday
+                                </small>
+                            </span>
+
+                            <span class="activity-arrow">
+                                →
+                            </span>
+                        </button>
+
+                        <button
+                            class="activity-item"
+                            type="button"
+                        >
+                            <span class="activity-icon">AI</span>
+
+                            <span class="activity-content">
+                                <strong>
+                                    Create a JavaScript quiz
+                                </strong>
+
+                                <small>
+                                    Web Development · 3 days ago
+                                </small>
+                            </span>
+
+                            <span class="activity-arrow">
+                                →
+                            </span>
+                        </button>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+    </div>
+    <div
+        class="modal-overlay"
+        id="plan-modal"
+        aria-hidden="true"
+    >
+        <div
+            class="modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="plan-modal-title"
+        >
+            <div class="modal-header">
+                <div>
+                    <p class="section-label">
+                        New learning goal
+                    </p>
+
+                    <h2 id="plan-modal-title">
+                        Create Study Plan
+                    </h2>
+                </div>
+
+                <button
+                    class="modal-close"
+                    id="plan-modal-close"
+                    type="button"
+                    aria-label="Close"
+                >
+                    ×
+                </button>
+            </div>
+
+            <form id="plan-form" class="plan-form">
+                <input
+                    id="plan-id"
+                    name="planId"
+                    type="hidden"
+                >
+                <div class="form-group">
+                    <label for="plan-title">
+                        Title
+                    </label>
+
+                    <input
+                        id="plan-title"
+                        name="title"
+                        type="text"
+                        minlength="3"
+                        maxlength="100"
+                        placeholder="For example: Data Structures"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="plan-subject">
+                        Subject
+                    </label>
+
+                    <input
+                        id="plan-subject"
+                        name="subject"
+                        type="text"
+                        maxlength="60"
+                        placeholder="For example: Computer Science"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="plan-description">
+                        Description
+                    </label>
+
+                    <textarea
+                        id="plan-description"
+                        name="description"
+                        rows="4"
+                        maxlength="500"
+                        placeholder="What do you want to learn?"
+                    ></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="plan-topics">
+                        Number of topics
+                    </label>
+
+                    <input
+                        id="plan-topics"
+                        name="totalTopics"
+                        type="number"
+                        min="1"
+                        max="100"
+                        value="10"
+                        required
+                    >
+                </div>
+
+                <div class="form-group edit-only">
+                    <label for="plan-completed-topics">
+                        Completed topics
+                    </label>
+
+                    <input
+                        id="plan-completed-topics"
+                        name="completedTopics"
+                        type="number"
+                        min="0"
+                        value="0"
+                        required
+                    >
+                </div>
+
+                <div class="form-group edit-only">
+                    <label for="plan-status">
+                        Status
+                    </label>
+
+                    <select
+                        id="plan-status"
+                        name="status"
+                        required
+                    >
+                        <option value="active">
+                            Active
+                        </option>
+
+                        <option value="paused">
+                            Paused
+                        </option>
+
+                        <option value="completed">
+                            Completed
+                        </option>
+                    </select>
+                </div>
+
+                <p
+                    class="form-message"
+                    id="plan-form-message"
+                    aria-live="polite"
+                ></p>
+
+                <div class="modal-actions">
+                    <button
+                        class="button button-danger edit-only"
+                        id="plan-delete-button"
+                        type="button"
+                    >
+                        Delete Plan
+                    </button>
+
+                    <div class="modal-actions-right">
+                        <button
+                            class="button button-secondary"
+                            id="plan-cancel-button"
+                            type="button"
+                        >
+                            Cancel
+                        </button>
+
+                        <button
+                            class="button"
+                            id="plan-submit-button"
+                            type="submit"
+                        >
+                            Create Plan
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div
+        class="modal-overlay"
+        id="plan-view-modal"
+        aria-hidden="true"
+    >
+        <div
+            class="modal plan-view-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="plan-view-title"
+        >
+            <div class="modal-header">
+                <div>
+                    <p
+                        class="section-label"
+                        id="plan-view-label"
+                    >
+                        Study plan
+                    </p>
+
+                    <h2 id="plan-view-title">
+                        Study Plan
+                    </h2>
+                </div>
+
+                <button
+                    class="modal-close"
+                    id="plan-view-close"
+                    type="button"
+                    aria-label="Close"
+                >
+                    ×
+                </button>
+            </div>
+
+            <div class="plan-view-summary">
+                <div class="plan-view-badges">
+                    <span
+                        class="plan-category"
+                        id="plan-view-subject"
+                    ></span>
+
+                    <span
+                        class="plan-view-badge"
+                        id="plan-view-duration"
+                    ></span>
+
+                    <span
+                        class="plan-status"
+                        id="plan-view-status"
+                    ></span>
+                </div>
+
+                <p id="plan-view-description"></p>
+
+                <div class="plan-view-progress">
+                    <div class="progress-header">
+                        <span id="plan-view-progress-text">
+                            0 of 0 topics
+                        </span>
+
+                        <strong id="plan-view-progress-percent">
+                            0%
+                        </strong>
+                    </div>
+
+                    <div class="progress-bar">
+                        <span
+                            id="plan-view-progress-bar"
+                            style="width: 0%"
+                        ></span>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="plan-view-content"
+                id="plan-view-content"
+            ></div>
+
+            <p
+                class="form-message"
+                id="plan-view-message"
+                aria-live="polite"
+            ></p>
+
+            <div class="plan-view-actions">
+                <button
+                    class="button button-danger"
+                    id="plan-view-delete"
+                    type="button"
+                >
+                    Delete Plan
+                </button>
+
+                <div class="modal-actions-right">
+                    <button
+                        class="button button-secondary"
+                        id="plan-view-close-button"
+                        type="button"
+                    >
+                        Close
+                    </button>
+
+                    <button
+                        class="button"
+                        id="plan-view-edit"
+                        type="button"
+                    >
+                        Edit Plan
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div
+        class="modal-overlay"
+        id="quiz-modal"
+        aria-hidden="true"
+    >
+        <div
+            class="modal quiz-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="quiz-modal-title"
+        >
+            <div class="modal-header">
+                <div>
+                    <p
+                        class="section-label"
+                        id="quiz-modal-label"
+                    >
+                        Topic quiz
+                    </p>
+
+                    <h2 id="quiz-modal-title">
+                        Quiz
+                    </h2>
+                </div>
+
+                <button
+                    class="modal-close"
+                    id="quiz-modal-close"
+                    type="button"
+                    aria-label="Close quiz"
+                >
+                    ×
+                </button>
+            </div>
+
+            <div
+                class="quiz-loading"
+                id="quiz-loading"
+            >
+                <div class="quiz-loader"></div>
+
+                <strong>
+                    Generating your quiz...
+                </strong>
+
+                <p>
+                    StudyPilot AI is preparing questions for this topic.
+                </p>
+            </div>
+
+            <div
+                class="quiz-content hidden"
+                id="quiz-content"
+            >
+                <div class="quiz-meta">
+                    <span id="quiz-question-counter">
+                        Question 1 of 5
+                    </span>
+
+                    <span id="quiz-best-score">
+                        Best score: 0%
+                    </span>
+                </div>
+
+                <div class="quiz-progress">
+                    <span
+                        id="quiz-progress-bar"
+                        style="width: 20%"
+                    ></span>
+                </div>
+
+                <div class="quiz-question">
+                    <h3 id="quiz-question-text">
+                        Question
+                    </h3>
+
+                    <div
+                        class="quiz-options"
+                        id="quiz-options"
+                    ></div>
+                </div>
+
+                <p
+                    class="form-message"
+                    id="quiz-message"
+                    aria-live="polite"
+                ></p>
+
+                <div class="quiz-actions">
+                    <button
+                        class="button button-secondary"
+                        id="quiz-previous-button"
+                        type="button"
+                    >
+                        Previous
+                    </button>
+
+                    <button
+                        class="button"
+                        id="quiz-next-button"
+                        type="button"
+                    >
+                        Next
+                    </button>
+                </div>
+            </div>
+
+            <div
+                class="quiz-result hidden"
+                id="quiz-result"
+            >
+                <div
+                    class="quiz-result-icon"
+                    id="quiz-result-icon"
+                >
+                    ✓
+                </div>
+
+                <h3 id="quiz-result-title">
+                    Quiz completed
+                </h3>
+
+                <strong
+                    class="quiz-score"
+                    id="quiz-result-score"
+                >
+                    0%
+                </strong>
+
+                <p id="quiz-result-summary"></p>
+
+                <div
+                    class="quiz-review"
+                    id="quiz-review"
+                ></div>
+
+                <div class="quiz-result-actions">
+                    <button
+                        class="button button-secondary"
+                        id="quiz-try-again-button"
+                        type="button"
+                    >
+                        Try Again
+                    </button>
+
+                    <button
+                        class="button"
+                        id="quiz-finish-button"
+                        type="button"
+                    >
+                        Continue
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div
+        class="modal-overlay"
+        id="delete-modal"
+        aria-hidden="true"
+    >
+        <div
+            class="modal delete-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="delete-modal-title"
+        >
+            <div class="delete-modal-icon">
+                !
+            </div>
+
+            <div class="delete-modal-content">
+                <h2 id="delete-modal-title">
+                    Delete Study Plan?
+                </h2>
+
+                <p>
+                    You are about to permanently delete
+                    <strong id="delete-plan-name"></strong>.
+                </p>
+
+                <p class="delete-warning">
+                    This action cannot be undone.
+                </p>
+            </div>
+
+            <div class="delete-modal-actions">
+                <button
+                    class="button button-secondary"
+                    id="delete-cancel-button"
+                    type="button"
+                >
+                    Cancel
+                </button>
+
+                <button
+                    class="button button-danger"
+                    id="delete-confirm-button"
+                    type="button"
+                >
+                    Delete Plan
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div
+        class="modal-overlay"
+        id="ai-plan-modal"
+        aria-hidden="true"
+    >
+        <div
+            class="modal ai-plan-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="ai-plan-modal-title"
+        >
+            <div class="modal-header">
+                <div>
+                    <p class="section-label">
+                        StudyPilot AI
+                    </p>
+
+                    <h2 id="ai-plan-modal-title">
+                        Generate a Study Plan
+                    </h2>
+                </div>
+
+                <button
+                    class="modal-close"
+                    id="ai-plan-modal-close"
+                    type="button"
+                    aria-label="Close"
+                >
+                    ×
+                </button>
+            </div>
+
+            <form
+                class="plan-form"
+                id="ai-plan-form"
+            >
+                <div class="form-group">
+                    <label for="ai-goal">
+                        What do you want to learn?
+                    </label>
+
+                    <textarea
+                        id="ai-goal"
+                        name="goal"
+                        rows="4"
+                        minlength="5"
+                        maxlength="500"
+                        placeholder="For example: I want to learn data structures and prepare for coding interviews."
+                        required
+                    ></textarea>
+                </div>
+
+                <div class="ai-form-row">
+                    <div class="form-group">
+                        <label for="ai-duration">
+                            Duration
+                        </label>
+
+                        <select
+                            id="ai-duration"
+                            name="durationWeeks"
+                            required
+                        >
+                            <option value="2">
+                                2 weeks
+                            </option>
+
+                            <option value="4" selected>
+                                4 weeks
+                            </option>
+
+                            <option value="6">
+                                6 weeks
+                            </option>
+
+                            <option value="8">
+                                8 weeks
+                            </option>
+
+                            <option value="12">
+                                12 weeks
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ai-level">
+                            Experience level
+                        </label>
+
+                        <select
+                            id="ai-level"
+                            name="experienceLevel"
+                            required
+                        >
+                            <option value="beginner">
+                                Beginner
+                            </option>
+
+                            <option value="intermediate">
+                                Intermediate
+                            </option>
+
+                            <option value="advanced">
+                                Advanced
+                            </option>
+                        </select>
+                    </div>
+                </div>
+
+                <p
+                    class="form-message"
+                    id="ai-form-message"
+                    aria-live="polite"
+                ></p>
+
+                <div class="modal-actions-right">
+                    <button
+                        class="button button-secondary"
+                        id="ai-plan-cancel"
+                        type="button"
+                    >
+                        Cancel
+                    </button>
+
+                    <button
+                        class="button"
+                        id="ai-plan-submit"
+                        type="submit"
+                    >
+                        Generate Plan
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div
+        class="modal-overlay"
+        id="ai-preview-modal"
+        aria-hidden="true"
+    >
+        <div
+            class="modal ai-preview-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="ai-preview-title"
+        >
+            <div class="modal-header">
+                <div>
+                    <p class="section-label">
+                        AI generated plan
+                    </p>
+
+                    <h2 id="ai-preview-title">
+                        Study Plan Preview
+                    </h2>
+                </div>
+
+                <button
+                    class="modal-close"
+                    id="ai-preview-close"
+                    type="button"
+                    aria-label="Close"
+                >
+                    ×
+                </button>
+            </div>
+
+            <div class="ai-preview-summary">
+                <div class="ai-preview-badges">
+                    <span
+                        class="plan-category"
+                        id="ai-preview-subject"
+                    ></span>
+
+                    <span
+                        class="ai-duration-badge"
+                        id="ai-preview-duration"
+                    ></span>
+                </div>
+
+                <h3 id="ai-preview-plan-title"></h3>
+
+                <p id="ai-preview-description"></p>
+            </div>
+
+            <div
+                class="ai-preview-topics"
+                id="ai-preview-topics"
+            ></div>
+
+            <p
+                class="form-message"
+                id="ai-preview-message"
+                aria-live="polite"
+            ></p>
+
+            <div class="ai-preview-actions">
+                <button
+                    class="button button-secondary"
+                    id="ai-regenerate-button"
+                    type="button"
+                >
+                    Regenerate
+                </button>
+
+                <div class="modal-actions-right">
+                    <button
+                        class="button button-secondary"
+                        id="ai-preview-cancel"
+                        type="button"
+                    >
+                        Cancel
+                    </button>
+
+                    <button
+                        class="button"
+                        id="ai-save-plan"
+                        type="button"
+                    >
+                        Save Plan
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div
+        class="toast"
+        id="toast"
+        role="status"
+        aria-live="polite"
+    ></div>
+
+    <script type="module" src="/js/dashboard.js"></script>
+</body>
+</html>

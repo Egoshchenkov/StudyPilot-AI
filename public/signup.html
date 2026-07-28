@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Create your StudyPilot AI account."
+    >
+
+    <title>Create Account | StudyPilot AI</title>
+
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/auth.css">
+</head>
+
+<body>
+    <main class="auth-page">
+        <section class="auth-panel">
+            <header class="auth-header">
+                <a href="/" class="logo">
+                    StudyPilot <span>AI</span>
+                </a>
+
+                <a href="/" class="back-link">
+                    ← Back to home
+                </a>
+            </header>
+
+            <div class="auth-content">
+                <div class="auth-heading">
+                    <h1>Create your account</h1>
+
+                    <p>
+                        Start building personalized study plans and learning
+                        with your AI tutor.
+                    </p>
+                </div>
+
+                <form id="signup-form" class="auth-form" novalidate>
+                    <div
+                        id="form-message"
+                        class="form-message"
+                        role="alert"
+                    ></div>
+
+                    <div class="form-group">
+                        <label for="username">Username</label>
+
+                        <input
+                            class="form-control"
+                            type="text"
+                            id="username"
+                            name="username"
+                            placeholder="Enter your username"
+                            autocomplete="username"
+                        >
+
+                        <p
+                            id="username-error"
+                            class="field-error"
+                        ></p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email address</label>
+
+                        <input
+                            class="form-control"
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="you@example.com"
+                            autocomplete="email"
+                        >
+
+                        <p
+                            id="email-error"
+                            class="field-error"
+                        ></p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+
+                        <div class="input-wrapper">
+                            <input
+                                class="form-control password-input"
+                                type="password"
+                                id="password"
+                                name="password"
+                                placeholder="At least 8 characters"
+                                autocomplete="new-password"
+                            >
+
+                            <button
+                                class="password-toggle"
+                                type="button"
+                                data-password-toggle="password"
+                                aria-label="Show password"
+                            >
+                                Show
+                            </button>
+                        </div>
+
+                        <p
+                            id="password-error"
+                            class="field-error"
+                        ></p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="confirm-password">
+                            Confirm password
+                        </label>
+
+                        <div class="input-wrapper">
+                            <input
+                                class="form-control password-input"
+                                type="password"
+                                id="confirm-password"
+                                name="confirmPassword"
+                                placeholder="Enter your password again"
+                                autocomplete="new-password"
+                            >
+
+                            <button
+                                class="password-toggle"
+                                type="button"
+                                data-password-toggle="confirm-password"
+                                aria-label="Show password"
+                            >
+                                Show
+                            </button>
+                        </div>
+
+                        <p
+                            id="confirm-password-error"
+                            class="field-error"
+                        ></p>
+                    </div>
+
+                    <label class="checkbox-label">
+                        <input
+                            type="checkbox"
+                            id="terms"
+                            name="terms"
+                        >
+
+                        <span>
+                            I agree to the Terms of Service and Privacy Policy
+                        </span>
+                    </label>
+
+                    <p id="terms-error" class="field-error"></p>
+
+                    <button
+                        id="signup-button"
+                        class="button auth-submit"
+                        type="submit"
+                    >
+                        Create Account
+                    </button>
+                </form>
+
+                <p class="auth-switch">
+                    Already have an account?
+                    <a href="/signin">Sign in</a>
+                </p>
+            </div>
+        </section>
+
+        <aside class="auth-visual">
+            <div class="visual-content">
+                <span class="visual-label">Personalized learning</span>
+
+                <h2>
+                    Turn any subject into a clear study plan.
+                </h2>
+
+                <p>
+                    StudyPilot AI helps you understand difficult topics,
+                    practice with quizzes, and keep your learning organized.
+                </p>
+
+                <div class="visual-card">
+                    <div class="visual-card-top">
+                        <div class="visual-avatar">AI</div>
+
+                        <div>
+                            <p class="visual-card-title">
+                                Data Structures Plan
+                            </p>
+
+                            <p class="visual-card-status">
+                                5 of 7 topics completed
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="visual-progress">
+                        <span></span>
+                    </div>
+
+                    <div class="visual-progress-text">
+                        <span>Weekly progress</span>
+                        <span>72%</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <script src="/js/signup.js"></script>
+</body>
+</html>

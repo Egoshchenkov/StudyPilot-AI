@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Sign in to your StudyPilot AI account."
+    >
+
+    <title>Sign In | StudyPilot AI</title>
+
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/auth.css">
+</head>
+
+<body>
+    <main class="auth-page">
+        <section class="auth-panel">
+            <header class="auth-header">
+                <a href="/" class="logo">
+                    StudyPilot <span>AI</span>
+                </a>
+
+                <a href="/" class="back-link">
+                    ← Back to home
+                </a>
+            </header>
+
+            <div class="auth-content">
+                <div class="auth-heading">
+                    <h1>Welcome back</h1>
+
+                    <p>
+                        Sign in to continue learning and access your saved
+                        study materials.
+                    </p>
+                </div>
+
+                <form id="signin-form" class="auth-form" novalidate>
+                    <div
+                        id="form-message"
+                        class="form-message"
+                        role="alert"
+                    ></div>
+
+                    <div class="form-group">
+                        <label for="email">Email address</label>
+
+                        <input
+                            class="form-control"
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="you@example.com"
+                            autocomplete="email"
+                        >
+
+                        <p
+                            id="email-error"
+                            class="field-error"
+                        ></p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+
+                        <div class="input-wrapper">
+                            <input
+                                class="form-control password-input"
+                                type="password"
+                                id="password"
+                                name="password"
+                                placeholder="Enter your password"
+                                autocomplete="current-password"
+                            >
+
+                            <button
+                                class="password-toggle"
+                                type="button"
+                                data-password-toggle="password"
+                                aria-label="Show password"
+                            >
+                                Show
+                            </button>
+                        </div>
+
+                        <p
+                            id="password-error"
+                            class="field-error"
+                        ></p>
+                    </div>
+
+                    <div class="form-row">
+                        <label class="checkbox-label">
+                            <input
+                                type="checkbox"
+                                id="remember-me"
+                                name="rememberMe"
+                            >
+
+                            <span>Remember me</span>
+                        </label>
+
+                        <a class="forgot-link" href="#">
+                            Forgot password?
+                        </a>
+                    </div>
+
+                    <button
+                        id="signin-button"
+                        class="button auth-submit"
+                        type="submit"
+                    >
+                        Sign In
+                    </button>
+                </form>
+
+                <p class="auth-switch">
+                    Do not have an account?
+                    <a href="/signup">Create one</a>
+                </p>
+            </div>
+        </section>
+
+        <aside class="auth-visual">
+            <div class="visual-content">
+                <span class="visual-label">Continue learning</span>
+
+                <h2>
+                    Your study progress is waiting for you.
+                </h2>
+
+                <p>
+                    Return to your notes, goals, AI conversations, and
+                    personalized learning plans.
+                </p>
+
+                <div class="visual-card">
+                    <div class="visual-card-top">
+                        <div class="visual-avatar">AI</div>
+
+                        <div>
+                            <p class="visual-card-title">
+                                Computer Science Fundamentals
+                            </p>
+
+                            <p class="visual-card-status">
+                                Next topic: Graph algorithms
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="visual-progress">
+                        <span></span>
+                    </div>
+
+                    <div class="visual-progress-text">
+                        <span>Course progress</span>
+                        <span>72%</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <script src="/js/signin.js"></script>
+</body>
+</html>

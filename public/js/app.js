@@ -1,0 +1,1 @@
+console.log("StudyPilot AI frontend loaded.");
